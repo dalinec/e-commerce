@@ -5,8 +5,9 @@ import {
   cartSectionStyles,
 } from './styles';
 import AppLogo from '../AppLogo';
-import { navItems } from '@src/heleprs';
+import { navItems } from '@src/helpers';
 import Link from 'next/link';
+import Searchbar from '../Searchbar/Searchbar';
 
 const DesktopNav = () => {
   return (
@@ -20,10 +21,12 @@ const DesktopNav = () => {
             <Link href={item.href}>{item.label}</Link>
           </Box>
         ))}
-        <Box>Search</Box>
+        <Box>
+          <Searchbar />
+        </Box>
       </Stack>
       <Stack {...cartSectionStyles}>
-        <Box>Whishlist</Box>
+        <Box>Wishlist</Box>
         <Box>Cart</Box>
       </Stack>
     </Flex>
