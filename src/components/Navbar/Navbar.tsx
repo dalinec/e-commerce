@@ -5,9 +5,11 @@ import MobileNav from './MobileNav';
 
 const Navbar = () => {
   return (
-    <Box {...navbarStyles}>
-      <DesktopNav />
-      <MobileNav />
+    <Box className='navWrapper' h='80px'>
+      <Box {...navbarStyles}>
+        <DesktopNav />
+        <MobileNav />
+      </Box>
     </Box>
   );
 };

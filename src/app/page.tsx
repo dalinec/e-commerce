@@ -1,11 +1,9 @@
-'use client';
-
-import { Box } from '@chakra-ui/react';
+import Banner from '@src/features/Home/Banner';
 
 export default function Home() {
   return (
     <>
-      <Box>Hello Next</Box>
+      <Banner />
     </>
   );
 }
