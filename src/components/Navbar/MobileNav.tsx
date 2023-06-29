@@ -2,12 +2,15 @@ import { Box, Flex, Stack, Text } from '@chakra-ui/react';
 import AppLogo from '../AppLogo';
 import { mobileNavContainer, mobileSearchWrapper } from './styles';
 import Searchbar from '../Searchbar/Searchbar';
+import MobileNavMenu from './MobileNavMenu';
 
 const MobileNav = () => {
   return (
     <>
       <Flex {...mobileNavContainer}>
-        <Box>Nav Menu</Box>
+        <Box>
+          <MobileNavMenu />
+        </Box>
         <AppLogo />
         <Stack direction='row' spacing={1}>
           <Text>WishList</Text>
