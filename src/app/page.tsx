@@ -7,7 +7,9 @@ export default function Home() {
     <>
       <Banner />
       <TopCategories />
-      <FeaturedProducts />
+      <FeaturedProducts title='Best Deals for You' />
+      <FeaturedProducts title='Most Selling Product' />
+      <FeaturedProducts title='Trending Products' />
     </>
   );
 }
