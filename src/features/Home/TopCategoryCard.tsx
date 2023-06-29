@@ -1,7 +1,12 @@
 import { Card, CardBody, Heading } from '@chakra-ui/react';
 import { Image } from '@chakra-ui/react';
+import { ICategory } from '@src/model';
 
-const TopCategoryCard = () => {
+interface ITopCategoryCardProps {
+  category: ICategory;
+}
+
+const TopCategoryCard = ({ category }: ITopCategoryCardProps) => {
   return (
     <Card
       direction='row'
@@ -13,9 +18,9 @@ const TopCategoryCard = () => {
       p='10px'
       _hover={{ cursor: 'pointer', bgColor: 'gray.100' }}
     >
-      <Image src='/product1.jpg' alt='product' width={100} height={100} />
+      <Image src={category.image} alt={category.slug} width={100} height={100} />
       <CardBody>
-        <Heading size={{ base: 'sm', lg: 'md' }}>Watches</Heading>
+        <Heading size={{ base: 'sm', lg: 'md' }}>{category.name}</Heading>
       </CardBody>
     </Card>
   );

@@ -1,6 +1,16 @@
-import { Box, IconButton } from '@chakra-ui/react';
+import { Box, IconButton, IconButtonProps } from '@chakra-ui/react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useSwiper } from 'swiper/react';
+
+const btnStyles: IconButtonProps = {
+  rounded: 'lg',
+  borderColor: 'brand.primary',
+  borderWidth: '1px',
+  color: 'brand.primaryDark',
+  bgColor: 'white',
+  mx: '1',
+  'aria-label': '',
+};
 
 const SwiperNavButtons = () => {
   const swiper = useSwiper();
@@ -8,27 +18,17 @@ const SwiperNavButtons = () => {
   return (
     <Box m='1.5rem'>
       <IconButton
-        rounded='lg'
+        {...btnStyles}
         icon={<FaChevronLeft />}
-        borderColor='brand.primary'
-        borderWidth='1px'
         aria-label='Prev'
-        color='brand.primaryDark'
-        bgColor='white'
         onClick={() => swiper.slidePrev()}
-        mx='1'
       />
 
       <IconButton
-        rounded='lg'
+        {...btnStyles}
         icon={<FaChevronRight />}
-        borderColor='brand.primary'
-        borderWidth='1px'
         aria-label='Next'
-        color='brand.primaryDark'
-        bgColor='white'
         onClick={() => swiper.slideNext()}
-        mx='1'
       />
     </Box>
   );

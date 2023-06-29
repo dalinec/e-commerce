@@ -3,8 +3,13 @@
 import { Box, Grid, GridItem } from '@chakra-ui/react';
 import SectionHeading from '@src/components/SectionHeading';
 import TopCategoryCard from './TopCategoryCard';
+import { ICategory } from '@src/model';
 
-const TopCategories = () => {
+interface ITopCategoriesProps {
+  categories: ICategory[];
+}
+
+const TopCategories = ({ categories }: ITopCategoriesProps) => {
   return (
     <Box w={{ base: '100%', lg: '90%' }} mx='auto' py='3rem' px='2rem'>
       <SectionHeading title='Shop Our Top Categories' />
@@ -16,18 +21,11 @@ const TopCategories = () => {
         }}
         gap='4'
       >
-        <GridItem>
-          <TopCategoryCard />
-        </GridItem>
-        <GridItem>
-          <TopCategoryCard />
-        </GridItem>
-        <GridItem>
-          <TopCategoryCard />
-        </GridItem>
-        <GridItem>
-          <TopCategoryCard />
-        </GridItem>
+        {categories.map((category) => (
+          <GridItem key={category.id}>
+            <TopCategoryCard category={category} />
+          </GridItem>
+        ))}
       </Grid>
     </Box>
   );
