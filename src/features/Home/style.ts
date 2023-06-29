@@ -30,3 +30,9 @@ export const bannerButtonStyles = {
   mb: '1rem',
   _hover: { bgColor: 'brand.primaryDark' },
 };
+
+export const bannerImgBoxStyles = {
+  w: { base: '300px', lg: '600px' },
+  h: { base: '300px', lg: '600px' },
+  bg: 'center / cover no-repeat url(mockup.svg)',
+};

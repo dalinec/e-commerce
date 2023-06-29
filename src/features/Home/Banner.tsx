@@ -4,6 +4,7 @@ import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react';
 import {
   bannerButtonStyles,
   bannerHeadingStyles,
+  bannerImgBoxStyles,
   bannerStyles,
   bannerTextStyles,
 } from './style';
@@ -26,12 +27,7 @@ const Banner = () => {
         </Link>
       </Box>
       <Flex justify='center' align='center' w={{ base: '100%', lg: '50%' }}>
-        <Box
-          mx='2rem'
-          w={{ base: '300px', lg: '600px' }}
-          h={{ base: '300px', lg: '600px' }}
-          bg='center / cover no-repeat url(mockup.svg)'
-        />
+        <Box {...bannerImgBoxStyles} />
       </Flex>
     </Flex>
   );
