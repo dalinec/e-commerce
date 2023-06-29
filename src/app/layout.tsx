@@ -5,6 +5,7 @@ import { CacheProvider } from '@chakra-ui/next-js';
 import { ChakraProvider } from '@chakra-ui/react';
 import { theme } from './theme';
 import Navbar from '@src/components/Navbar/Navbar';
+import { Footer } from '@src/components/Footer';
 
 export default function RootLayout({
   children,
@@ -28,6 +29,7 @@ export default function RootLayout({
           <ChakraProvider theme={theme}>
             <Navbar />
             {children}
+            <Footer />
           </ChakraProvider>
         </CacheProvider>
       </body>
