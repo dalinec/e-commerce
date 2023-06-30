@@ -7,6 +7,7 @@ export const bannerStyles: FlexProps = {
   flexDirection: { base: 'column', lg: 'row' },
   w: { base: '100%', lg: '90%' },
   mx: 'auto',
+  mt: '1rem',
   p: '2rem',
 };
 

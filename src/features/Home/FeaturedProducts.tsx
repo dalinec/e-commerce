@@ -33,7 +33,7 @@ const FeaturedProducts = ({ title, products }: FeaturedProductsProps) => {
   };
 
   return (
-    <Box w={{ base: '100%', lg: '90%' }} mx=' auto' p='2rem'>
+    <Box w={{ base: '100%', lg: '90%' }} mx='auto' p='2rem'>
       <SectionHeading title={title} />
       <Swiper {...sliderSettings} style={{ width: '100%', height: '100%' }}>
         {products.map((product) => (

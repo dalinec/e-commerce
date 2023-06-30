@@ -1,3 +1,5 @@
+export type ItemKey = 'cart' | 'wishlist' | 'checkout';
+
 export interface INavItem {
   label: string;
   href: string;
@@ -35,6 +37,26 @@ export interface IFeaturedItems {
 }
 
 export interface IBreadCrumbItem {
-  name:string
-  link:string
+  name: string;
+  link: string;
+}
+
+export interface IState {
+  cart: IItem[];
+  wishlist: IItem[];
+  checkout: IItem[];
+}
+
+export interface IItem extends IProduct {
+  count: number;
+}
+
+export interface IContext {
+  state: IState;
+  addItem: (key: ItemKey, product: IProduct, count?: number) => void;
+  removeItem: (key: ItemKey, productId: string) => void;
+  increaseCount: (key: ItemKey, productId: string) => void;
+  decreaseCount: (key: ItemKey, productId: string) => void;
+  resetItems: (key: ItemKey) => void;
+  isAdded: (key: ItemKey, productId: string) => void;
 }

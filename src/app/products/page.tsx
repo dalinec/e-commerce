@@ -11,7 +11,7 @@ const ProductsPage = () => {
         heading='The best quality Products'
         description='Affordability, Durability, Fast and Convenient Delivery, Free Shipping and more!'
         imageUrl='/bags.jpg'
-        btnLabel='VieW All Categories'
+        btnLabel='View All Categories'
         btnLink='/categories'
       />
       <AllProducts products={products} />

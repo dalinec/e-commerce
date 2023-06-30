@@ -6,6 +6,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { theme } from './theme';
 import Navbar from '@src/components/Navbar/Navbar';
 import { Footer } from '@src/components/Footer';
+import AppContextProvider from '@src/context/AppContext';
 
 export default function RootLayout({
   children,
@@ -27,9 +28,11 @@ export default function RootLayout({
       <body>
         <CacheProvider>
           <ChakraProvider theme={theme}>
-            <Navbar />
-            {children}
-            <Footer />
+            <AppContextProvider>
+              <Navbar />
+              {children}
+              <Footer />
+            </AppContextProvider>
           </ChakraProvider>
         </CacheProvider>
       </body>

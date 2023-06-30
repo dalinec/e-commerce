@@ -7,7 +7,6 @@ import {
   DrawerCloseButton,
   DrawerHeader,
   DrawerBody,
-  Input,
   DrawerFooter,
   Box,
 } from '@chakra-ui/react';
@@ -35,13 +34,14 @@ const MobileNavMenu = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>
+          <DrawerHeader onClick={onClose}>
             <AppLogo />
           </DrawerHeader>
           <DrawerBody>
             {navItems.map((item, i) => (
               <Link key={i} href={item.href}>
                 <Box
+                  onClick={onClose}
                   p='0.5rem'
                   _hover={{ bgColor: 'brand.primaryLight', color: 'white' }}
                 >
