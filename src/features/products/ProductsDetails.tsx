@@ -13,18 +13,44 @@ import {
   Link as ChakraLink,
 } from '@chakra-ui/react';
 import AddToCartButton from '@src/components/AddToCartButton';
+import CustomBreadCrumb from '@src/components/CustomBreadCrumb';
 import Quantity from '@src/components/Quantity';
 import Rating from '@src/components/Rating';
-import { IProduct } from '@src/model';
+import { getSubstring } from '@src/helpers';
+import { IBreadCrumbItem, IProduct } from '@src/model';
 import Link from 'next/link';
 
 interface IProductsDetailsProps {
   product: IProduct;
 }
 
+const items: IBreadCrumbItem[] = [
+  {
+    name: 'Products',
+    link: '/products',
+  },
+  {
+    name: 'Categories',
+    link: '/categories',
+  },
+];
+
 const ProductsDetails = ({ product }: IProductsDetailsProps) => {
   return (
     <>
+      <CustomBreadCrumb
+        items={[
+          ...items,
+          {
+            name: product.category!.name,
+            link: `/categoreis/${product.category?.id}`,
+          },
+          {
+            name: getSubstring(product.name, 20),
+            link: `/products/${product.slug}`,
+          },
+        ]}
+      />
       <Grid
         templateColumns={{ base: 'repeat(1,1fr)', lg: 'repeat(2,1fr)' }}
         w={{ base: '100%', lg: '90%' }}

@@ -33,3 +33,8 @@ export interface IFeaturedItems {
   mostSellingProducts: IProduct[];
   trendingProducts: IProduct[];
 }
+
+export interface IBreadCrumbItem {
+  name:string
+  link:string
+}
