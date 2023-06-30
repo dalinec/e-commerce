@@ -1,4 +1,4 @@
-import { INavItem } from './model';
+import { INavItem, IBreadCrumbItem } from './model';
 
 export const navItems: INavItem[] = [
   {
@@ -16,3 +16,14 @@ export const getSubstring = (text: string, substringEnd: number): string => {
     ? `${text.substring(0, substringEnd)}...`
     : text;
 };
+
+export const defaultBreadcrumbItems: IBreadCrumbItem[] = [
+  {
+    name: 'Products',
+    link: '/products',
+  },
+  {
+    name: 'Categories',
+    link: '/categories',
+  },
+];

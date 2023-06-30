@@ -16,31 +16,20 @@ import AddToCartButton from '@src/components/AddToCartButton';
 import CustomBreadCrumb from '@src/components/CustomBreadCrumb';
 import Quantity from '@src/components/Quantity';
 import Rating from '@src/components/Rating';
-import { getSubstring } from '@src/helpers';
-import { IBreadCrumbItem, IProduct } from '@src/model';
+import { defaultBreadcrumbItems, getSubstring } from '@src/helpers';
+import { IProduct } from '@src/model';
 import Link from 'next/link';
 
 interface IProductsDetailsProps {
   product: IProduct;
 }
 
-const items: IBreadCrumbItem[] = [
-  {
-    name: 'Products',
-    link: '/products',
-  },
-  {
-    name: 'Categories',
-    link: '/categories',
-  },
-];
-
 const ProductsDetails = ({ product }: IProductsDetailsProps) => {
   return (
     <>
       <CustomBreadCrumb
         items={[
-          ...items,
+          ...defaultBreadcrumbItems,
           {
             name: product.category!.name,
             link: `/categoreis/${product.category?.id}`,
