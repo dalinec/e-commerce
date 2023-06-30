@@ -9,6 +9,7 @@ export const heroCardStyles: CardProps = {
   w: { base: '100%', lg: '90%' },
   mx: 'auto',
   shadow: 'sm',
+  mt: { base: '3.5rem', lg: '0' },
   p: '2rem',
   mb: '2rem',
 };

@@ -4,7 +4,7 @@ import { products } from '@mocks/products';
 import Hero from '@src/components/Hero/Hero';
 import AllProducts from '@src/features/products';
 
-const page = () => {
+const ProductsPage = () => {
   return (
     <>
       <Hero
@@ -19,4 +19,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default ProductsPage;

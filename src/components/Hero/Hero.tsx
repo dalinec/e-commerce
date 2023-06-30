@@ -28,11 +28,7 @@ const Hero = ({
           <Button variant='outline'>{btnLabel}</Button>
         </Link>
       </Box>
-      <Box
-        mx='2rem'
-        w={{ base: '100%', lg: '50%' }}
-        mt={{ base: '1rem', lg: '0' }}
-      >
+      <Box mx='2rem' w={{ base: '100%', lg: '50%' }} mt='1rem'>
         <Image src={imageUrl} alt={heading} {...heroImgStyles} />
       </Box>
     </Card>
