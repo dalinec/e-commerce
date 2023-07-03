@@ -35,7 +35,7 @@ export const WishlistItem = ({ item }: WishlistItemProps) => {
         </Link>
       </GridItem>
       <GridItem colSpan={4}>
-        <Link href={item.slug}>
+        <Link href={`/products/${item.slug}`}>
           <Text fontSize='sm' title={item.name}>
             {getSubstring(item.name, 17)}
           </Text>

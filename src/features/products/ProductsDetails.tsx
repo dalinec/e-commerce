@@ -13,18 +13,23 @@ import {
   Link as ChakraLink,
 } from '@chakra-ui/react';
 import AddToCartButton from '@src/components/AddToCartButton';
+import AddToWishlistButton from '@src/components/AddToWishlistButton';
 import CustomBreadCrumb from '@src/components/CustomBreadCrumb';
 import Quantity from '@src/components/Quantity';
 import Rating from '@src/components/Rating';
+import { AppContext } from '@src/context/AppContext';
 import { defaultBreadcrumbItems, getSubstring } from '@src/helpers';
 import { IProduct } from '@src/model';
 import Link from 'next/link';
+import { useState, useContext } from 'react';
 
 interface IProductsDetailsProps {
   product: IProduct;
 }
 
 const ProductsDetails = ({ product }: IProductsDetailsProps) => {
+  const [quantity, setQuantity] = useState(1);
+  const { isAdded, addItem } = useContext(AppContext);
   return (
     <>
       <CustomBreadCrumb
@@ -47,7 +52,8 @@ const ProductsDetails = ({ product }: IProductsDetailsProps) => {
         p='2rem'
         gap={20}
       >
-        <GridItem p='1rem'>
+        <GridItem p='1rem' pos='relative'>
+          <AddToWishlistButton product={product} />
           <Image src={product.mainImage} alt={product.name} mx='auto' />
         </GridItem>
         <GridItem p='1rem'>
@@ -58,7 +64,12 @@ const ProductsDetails = ({ product }: IProductsDetailsProps) => {
             ${product.price}
           </Text>
           <Divider my='1rem' />
-          <Quantity />
+          <Quantity
+            setQuantity={(_valueAsString, valueAsNumber) =>
+              setQuantity(valueAsNumber)
+            }
+            disabled={isAdded('cart', product.id)}
+          />
           <Divider my='1rem' />
 
           <Box>
@@ -73,13 +84,15 @@ const ProductsDetails = ({ product }: IProductsDetailsProps) => {
                 mr='1rem'
                 my='0.5rem'
                 _hover={{ bgColor: 'none' }}
+                onClick={() => {
+                  addItem('cart', product, quantity);
+                }}
               >
                 Buy Now
               </Button>
             </Link>
-            <AddToCartButton />
+            <AddToCartButton product={product} count={quantity} />
           </Box>
-
           <Stack py='2rem'>
             <Box borderWidth={1} borderColor='gray.100' p='1rem'>
               <Text fontWeight='bold'>Free Deliver</Text>

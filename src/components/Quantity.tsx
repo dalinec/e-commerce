@@ -6,6 +6,7 @@ interface IQuantityProps {
   min?: number;
   max?: number;
   disabled?: boolean;
+  setQuantity: (valueAsString: string, valueAsNumber: number) => void;
 }
 
 const Quantity = ({
@@ -14,9 +15,18 @@ const Quantity = ({
   min = 1,
   max = 20,
   disabled = false,
+  setQuantity,
 }: IQuantityProps) => {
   const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
-    useNumberInput({ step, defaultValue, min, max });
+    useNumberInput({
+      step,
+      defaultValue,
+      min,
+      max,
+      onChange(valueAsString, valueAsNumber) {
+        setQuantity(valueAsString, valueAsNumber);
+      },
+    });
 
   const inc = getIncrementButtonProps();
   const dec = getDecrementButtonProps();

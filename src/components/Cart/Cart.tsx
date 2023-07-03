@@ -19,24 +19,14 @@ import { useContext, useRef } from 'react';
 import { BsCart4 } from 'react-icons/bs';
 import { CartItem } from './CartItem';
 
- const Cart = () => {
+const Cart = () => {
   const {
     state: { cart },
     resetItems,
-    addItem,
   } = useContext(AppContext);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef<any>();
-
-  const handleCheckout = () => {
-    resetItems('checkout');
-    cart.forEach((cartItem) => {
-      addItem('checkout', cartItem, cartItem.count);
-    });
-
-    onClose();
-  };
 
   return (
     <>
@@ -79,7 +69,7 @@ import { CartItem } from './CartItem';
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader color='brand.primary'>
-            Cart ( {cart.length} Items )
+            Your Cart contains {cart.length} items.
           </DrawerHeader>
           <DrawerBody>
             {cart.length === 0 ? (
@@ -108,7 +98,7 @@ import { CartItem } from './CartItem';
                     _active={{
                       bgColor: 'brand.primaryLight',
                     }}
-                    onClick={handleCheckout}
+                    onClick={onClose}
                   >
                     Checkout
                   </Button>
@@ -123,4 +113,4 @@ import { CartItem } from './CartItem';
   );
 };
 
-export default Cart
+export default Cart;
