@@ -4,7 +4,6 @@ import {
   CardBody,
   Flex,
   Heading,
-  Image,
   Stack,
   Text,
 } from '@chakra-ui/react';
@@ -12,6 +11,7 @@ import Rating from './Rating';
 import AddToCartButton from './AddToCartButton';
 import { IProduct } from '@src/model';
 import { getSubstring } from '@src/helpers';
+import AddToWishlistButton from './AddToWishlistButton';
 
 interface IProductCardProps {
   product: IProduct;
@@ -20,6 +20,7 @@ interface IProductCardProps {
 const ProductCard = ({ product }: IProductCardProps) => {
   return (
     <Card w='xs' pos='relative' m='0.5rem'>
+      <AddToWishlistButton product={product} />
       <CardBody>
         <Box
           boxSize='200px'
@@ -37,7 +38,7 @@ const ProductCard = ({ product }: IProductCardProps) => {
           </Flex>
           <Text>{getSubstring(product.description, 30)}</Text>
           <Rating rating={product.rating} />
-          <AddToCartButton />
+          <AddToCartButton product={product} />
         </Stack>
       </CardBody>
     </Card>

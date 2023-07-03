@@ -1,38 +1,46 @@
+'use client';
+
 import { Button } from '@chakra-ui/react';
-import { products } from '@mocks/products';
 import { AppContext } from '@src/context/AppContext';
-import { useContext, useEffect } from 'react';
+import { IProduct } from '@src/model';
+import { useContext } from 'react';
 
-const AddToCartButton = () => {
-  const {
-    state,
-    addItem,
-    removeItem,
-    resetItems,
-    increaseCount,
-    decreaseCount,
-  } = useContext(AppContext);
+interface IAddToCartButtonProps {
+  product: IProduct;
+  count?: number;
+}
 
-  const handleTest = () => {
-    addItem('cart', products[0]);
-  };
-
-  useEffect(() => {
-    console.log(state), [state];
-  });
+const AddToCartButton = ({ product, count }: IAddToCartButtonProps) => {
+  const { addItem, removeItem, isAdded } = useContext(AppContext);
 
   return (
-    <Button
-      variant='outline'
-      borderColor='brand.primary'
-      color='brand.primary'
-      rounded='full'
-      size='sm'
-      w='150px'
-      onClick={handleTest}
-    >
-      Add to cart
-    </Button>
+    <>
+      {isAdded('cart', product.id) ? (
+        <Button
+          variant='outline'
+          borderColor='gray.200'
+          color='gray.500'
+          borderRadius='50px'
+          size='sm'
+          w='150px'
+          onClick={() => removeItem('cart', product.id)}
+        >
+          Remove from cart
+        </Button>
+      ) : (
+        <Button
+          variant='outline'
+          borderColor='brand.primary'
+          color='brand.primary'
+          borderRadius='50px'
+          size='sm'
+          w='150px'
+          onClick={() => addItem('cart', product, count)}
+        >
+          Add to cart
+        </Button>
+      )}
+    </>
   );
 };
 

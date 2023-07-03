@@ -18,8 +18,8 @@ export interface IProduct {
   rating: IRating;
   slug: string;
   mainImage: string;
-  category?: ICategory;
-  gallery?: string[];
+  category: ICategory;
+  gallery: string[];
 }
 
 export interface ICategory {
@@ -58,5 +58,5 @@ export interface IContext {
   increaseCount: (key: ItemKey, productId: string) => void;
   decreaseCount: (key: ItemKey, productId: string) => void;
   resetItems: (key: ItemKey) => void;
-  isAdded: (key: ItemKey, productId: string) => void;
+  isAdded: (key: ItemKey, productId: string) => boolean;
 }

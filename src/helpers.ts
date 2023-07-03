@@ -1,4 +1,4 @@
-import { INavItem, IBreadCrumbItem } from './model';
+import { INavItem, IBreadCrumbItem, IItem } from './model';
 
 export const navItems: INavItem[] = [
   {
@@ -27,3 +27,17 @@ export const defaultBreadcrumbItems: IBreadCrumbItem[] = [
     link: '/categories',
   },
 ];
+
+export const calculateItemsTotal = (items: IItem[]): number => {
+  return items
+    .map((item) => ({ price: item.price, count: item.count }))
+    .reduce(
+      (previousValue, currentValue) =>
+        previousValue + currentValue.price * currentValue.count,
+      0
+    );
+};
+
+export const formatPrice = (value: number): string => {
+  return value.toFixed(2);
+};

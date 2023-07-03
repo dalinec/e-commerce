@@ -8,6 +8,8 @@ import AppLogo from '../AppLogo';
 import { navItems } from '@src/helpers';
 import Link from 'next/link';
 import Searchbar from '../Searchbar/Searchbar';
+import Wishlist from '../Wishlist/Wishlist';
+import Cart from '../Cart/Cart';
 
 const DesktopNav = () => {
   return (
@@ -26,8 +28,8 @@ const DesktopNav = () => {
         </Box>
       </Stack>
       <Stack {...cartSectionStyles}>
-        <Box>Wishlist</Box>
-        <Box>Cart</Box>
+        <Wishlist />
+        <Cart />
       </Stack>
     </Flex>
   );

@@ -17,7 +17,6 @@ const AppContextProvider = ({ children }: IAppContextProviderProps) => {
   const [state, setState] = useState<IState>(initialState);
 
   const addItem = (key: ItemKey, product: IProduct, count?: number) => {
-    //adds items to the state
     setState((prevState) => ({
       ...prevState,
       [key]: [...prevState[key], { ...product, count: count || 1 }],
@@ -40,8 +39,11 @@ const AppContextProvider = ({ children }: IAppContextProviderProps) => {
   const decreaseCount = (key: ItemKey, productId: string) => {
     const items = [...state[key]];
     const index = items.findIndex((item) => item.id === productId);
-    if (index !== -1 && items[index].count > 1) {
+    if (index !== -1) {
       items[index].count -= 1;
+      if (items[index].count < 1) {
+        items.splice(index, 1);
+      }
       setState((prevState) => ({ ...prevState, [key]: items }));
     }
   };
