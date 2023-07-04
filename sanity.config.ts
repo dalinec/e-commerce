@@ -2,6 +2,7 @@ import { Config } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import { schemaTypes } from '@schemas';
+import { rwTheme } from '@src/app/theme';
 
 export const config: Config = {
   name: 'default',
@@ -15,4 +16,6 @@ export const config: Config = {
   schema: {
     types: schemaTypes,
   },
+
+  theme: rwTheme,
 };
