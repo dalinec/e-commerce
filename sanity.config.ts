@@ -3,6 +3,7 @@ import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import { schemaTypes } from '@schemas';
 import { rwTheme } from '@src/app/theme';
+import StudioNavbar from '@src/components/StudioNavbar';
 
 export const config: Config = {
   name: 'default',
@@ -18,4 +19,10 @@ export const config: Config = {
   },
 
   theme: rwTheme,
+
+  studio: {
+    components: {
+      navbar: StudioNavbar,
+    },
+  },
 };

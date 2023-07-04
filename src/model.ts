@@ -19,7 +19,7 @@ export interface IProduct {
   slug: string;
   mainImage: string;
   category: ICategory;
-  gallery: string[];
+  // gallery: string[];
 }
 
 export interface ICategory {
