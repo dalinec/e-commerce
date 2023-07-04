@@ -46,7 +46,7 @@ const PaymentDetails = () => {
             <Button
               bgColor='brand.primary'
               color='white'
-              zIndex={10}
+              zIndex={1}
               rounded='full'
               ml='-40px'
               px='2rem'

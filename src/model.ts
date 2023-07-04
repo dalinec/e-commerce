@@ -57,6 +57,6 @@ export interface IContext {
   removeItem: (key: ItemKey, productId: string) => void;
   increaseCount: (key: ItemKey, productId: string) => void;
   decreaseCount: (key: ItemKey, productId: string) => void;
-  resetItems: (key: ItemKey) => void;
   isAdded: (key: ItemKey, productId: string) => boolean;
+  resetItems: (key: ItemKey) => void;
 }
