@@ -3,7 +3,7 @@
 import 'swiper/swiper.min.css';
 import { CacheProvider } from '@chakra-ui/next-js';
 import { ChakraProvider } from '@chakra-ui/react';
-import { theme } from './theme';
+import { theme } from '../theme';
 import Navbar from '@src/components/Navbar/Navbar';
 import { Footer } from '@src/components/Footer';
 import AppContextProvider from '@src/context/AppContext';
