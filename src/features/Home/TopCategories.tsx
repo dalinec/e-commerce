@@ -1,9 +1,10 @@
 'use client';
 
-import { Box, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Button, Grid, GridItem } from '@chakra-ui/react';
 import SectionHeading from '@src/components/SectionHeading';
 import TopCategoryCard from './TopCategoryCard';
 import { ICategory } from '@src/model';
+import Link from 'next/link';
 
 interface ITopCategoriesProps {
   categories: ICategory[];
@@ -27,6 +28,18 @@ const TopCategories = ({ categories }: ITopCategoriesProps) => {
           </GridItem>
         ))}
       </Grid>
+      <Link href='/categories'>
+        <Button
+          bgColor='white'
+          variant='outline'
+          borderColor='brand.primary'
+          color='brand.primary'
+          rounded='full'
+          my='1rem'
+        >
+          Browse All Categories
+        </Button>
+      </Link>
     </Box>
   );
 };

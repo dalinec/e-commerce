@@ -2,7 +2,7 @@ import { Box, IconButton, IconButtonProps } from '@chakra-ui/react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useSwiper } from 'swiper/react';
 
-const btnStyles: IconButtonProps = {
+export const btnStyles: IconButtonProps = {
   rounded: 'lg',
   borderColor: 'brand.primary',
   borderWidth: '1px',
@@ -19,6 +19,7 @@ const SwiperNavButtons = () => {
     <Box m='1.5rem'>
       <IconButton
         {...btnStyles}
+        className='prev'
         icon={<FaChevronLeft />}
         aria-label='Prev'
         onClick={() => swiper.slidePrev()}
@@ -26,6 +27,7 @@ const SwiperNavButtons = () => {
 
       <IconButton
         {...btnStyles}
+        className='next'
         icon={<FaChevronRight />}
         aria-label='Next'
         onClick={() => swiper.slideNext()}

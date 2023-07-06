@@ -32,7 +32,7 @@ export const cartSectionStyles: StackProps = {
 export const mobileNavContainer: FlexProps = {
   justify: 'space-between',
   align: 'center',
-  px: '2rem',
+  px: '1rem',
   py: '1rem',
   borderBottom: '1px',
   borderColor: 'gray.200',

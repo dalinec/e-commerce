@@ -15,7 +15,7 @@ const AllProducts = ({ products }: IAllProductsProps) => {
         flexWrap='wrap'
         w={{ base: '100%', lg: '90%' }}
         mx='auto'
-        justify={{ base: 'center', lg: 'space-between' }}
+        justify={{ base: 'center', lg: 'start' }}
         align='center'
       >
         {products.map((product) => (

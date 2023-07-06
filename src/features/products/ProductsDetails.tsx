@@ -11,8 +11,10 @@ import {
   Stack,
   Text,
   Link as ChakraLink,
+  Flex,
 } from '@chakra-ui/react';
 import AddToCartButton from '@src/components/AddToCartButton';
+import AddToWishListDetailPage from '@src/components/AddToWishListDetailPage';
 import AddToWishlistButton from '@src/components/AddToWishlistButton';
 import CustomBreadCrumb from '@src/components/CustomBreadCrumb';
 import Quantity from '@src/components/Quantity';
@@ -53,7 +55,6 @@ const ProductsDetails = ({ product }: IProductsDetailsProps) => {
         gap={20}
       >
         <GridItem p='1rem' pos='relative'>
-          <AddToWishlistButton product={product} />
           <Image src={product.mainImage} alt={product.name} mx='auto' />
         </GridItem>
         <GridItem p='1rem'>
@@ -72,7 +73,13 @@ const ProductsDetails = ({ product }: IProductsDetailsProps) => {
           />
           <Divider my='1rem' />
 
-          <Box>
+          <Flex
+            justify='start'
+            align='center'
+            gap='20px'
+            direction={{ base: 'column', lg: 'row' }}
+            mt='1.5rem'
+          >
             <Link href={'/checkout'}>
               <Button
                 variant='outline'
@@ -81,8 +88,6 @@ const ProductsDetails = ({ product }: IProductsDetailsProps) => {
                 borderRadius='50px'
                 size='sm'
                 w='160px'
-                mr='1rem'
-                my='0.5rem'
                 _hover={{ bgColor: 'none' }}
                 onClick={() => {
                   addItem('cart', product, quantity);
@@ -92,7 +97,8 @@ const ProductsDetails = ({ product }: IProductsDetailsProps) => {
               </Button>
             </Link>
             <AddToCartButton product={product} count={quantity} />
-          </Box>
+            <AddToWishListDetailPage product={product} />
+          </Flex>
           <Stack py='2rem'>
             <Box borderWidth={1} borderColor='gray.100' p='1rem'>
               <Text fontWeight='bold'>Free Deliver</Text>

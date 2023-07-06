@@ -61,7 +61,7 @@ export const Footer = () => {
           templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
           spacing={8}
         >
-          <Stack spacing={6}>
+          <Stack spacing={6} align='start'>
             <Box>
               <AppLogo />
             </Box>

@@ -1,13 +1,13 @@
 'use client';
 
-import { CSSProperties } from 'react';
-import ProductCard from '@src/components/ProductCard';
-import { SwiperOptions, Navigation, Autoplay } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperNavButtons from '@src/components/SwiperNavButtons';
-import SectionHeading from '@src/components/SectionHeading';
 import { Box } from '@chakra-ui/react';
+import ProductCard from '@src/components/ProductCard';
+import SectionHeading from '@src/components/SectionHeading';
+import SwiperNavButtons from '@src/components/SwiperNavButtons';
 import { IProduct } from '@src/model';
+import { CSSProperties } from 'react';
+import { Autoplay, Navigation, SwiperOptions } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const slideStyles: CSSProperties = {
   boxSizing: 'border-box',
@@ -24,11 +24,9 @@ const FeaturedProducts = ({ title, products }: FeaturedProductsProps) => {
     modules: [Navigation, Autoplay],
     spaceBetween: 10,
     slidesPerView: 'auto',
-    speed: 1000,
     loop: true,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: false,
     },
   };
 

@@ -5,7 +5,7 @@ const AppLogo = () => {
   return (
     <>
       <Link href={'/'}>
-        <Text color='gray.800' fontWeight='bold'>
+        <Text color='gray.800' fontWeight='bold' textAlign='center'>
           RW{' '}
           <Text as='span' color='brand.primary'>
             BUY
