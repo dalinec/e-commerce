@@ -3,19 +3,18 @@
 import {
   Box,
   Button,
+  Link as ChakraLink,
   Divider,
+  Flex,
   Grid,
   GridItem,
   Heading,
   Image,
   Stack,
   Text,
-  Link as ChakraLink,
-  Flex,
 } from '@chakra-ui/react';
 import AddToCartButton from '@src/components/AddToCartButton';
 import AddToWishListDetailPage from '@src/components/AddToWishListDetailPage';
-import AddToWishlistButton from '@src/components/AddToWishlistButton';
 import CustomBreadCrumb from '@src/components/CustomBreadCrumb';
 import Quantity from '@src/components/Quantity';
 import Rating from '@src/components/Rating';
@@ -23,7 +22,7 @@ import { AppContext } from '@src/context/AppContext';
 import { defaultBreadcrumbItems, getSubstring } from '@src/helpers';
 import { IProduct } from '@src/model';
 import Link from 'next/link';
-import { useState, useContext } from 'react';
+import { useContext, useState } from 'react';
 
 interface IProductsDetailsProps {
   product: IProduct;
@@ -39,7 +38,7 @@ const ProductsDetails = ({ product }: IProductsDetailsProps) => {
           ...defaultBreadcrumbItems,
           {
             name: product.category?.name,
-            link: `/categoreis/${product.category?.id}`,
+            link: `/categories/${product.category?.id}`,
           },
           {
             name: getSubstring(product.name, 20),
