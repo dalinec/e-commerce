@@ -38,7 +38,7 @@ const ProductsDetails = ({ product }: IProductsDetailsProps) => {
         items={[
           ...defaultBreadcrumbItems,
           {
-            name: product.category!.name,
+            name: product.category?.name,
             link: `/categoreis/${product.category?.id}`,
           },
           {

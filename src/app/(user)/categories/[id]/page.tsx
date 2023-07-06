@@ -1,4 +1,3 @@
-import { products } from '@mocks/products';
 import CustomBreadCrumb from '@src/components/CustomBreadCrumb';
 import Hero from '@src/components/Hero/Hero';
 import AllProducts from '@src/features/products';
@@ -31,7 +30,7 @@ const CategoryPage = async ({ params: { id } }: Props) => {
     <>
       <Hero
         heading={products[0]?.category?.name}
-        description={`Best and Affortable ${products[0]?.category?.name}`}
+        description={`Best and Affordable ${products[0]?.category?.name}`}
         imageUrl={products[0]?.category?.image}
         btnLabel='View All Categories'
         btnLink='/categories'

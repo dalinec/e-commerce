@@ -26,6 +26,7 @@ export const revalidate = 60;
 
 const ProductsPage = async () => {
   const products: IProduct[] = await getProducts();
+
   return (
     <>
       <Hero
