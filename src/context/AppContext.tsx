@@ -1,5 +1,6 @@
 import { IContext, IProduct, IState, ItemKey } from '@src/model';
-import { ReactNode, createContext, useState } from 'react';
+import { ReactNode, createContext } from 'react';
+import { useLocalStorage } from '@mantine/hooks';
 
 export const AppContext = createContext<IContext>(null as any);
 
@@ -14,7 +15,10 @@ const initialState: IState = {
 };
 
 const AppContextProvider = ({ children }: IAppContextProviderProps) => {
-  const [state, setState] = useState<IState>(initialState);
+  const [state, setState] = useLocalStorage<IState>({
+    key: 'rw-buy',
+    defaultValue: initialState,
+  });
 
   const addItem = (key: ItemKey, product: IProduct, count?: number) => {
     setState((prevState) => ({
